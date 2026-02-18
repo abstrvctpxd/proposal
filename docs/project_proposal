@@ -1,0 +1,47 @@
+# UniCryptoPay Project Proposal
+
+## 1. Problem Statement
+
+Students experience:
+- Long payment queues
+- Slow bank/mobile money transfers
+- High transaction fees
+- Poor tracking of society contributions
+
+## 2. Proposed Solution
+
+A university-restricted crypto payment app allowing:
+- Student-to-student transfers
+- QR code vendor payments
+- Club subscriptions
+- Event ticket purchases
+- University digital rewards
+
+## 3. Objectives
+
+- Reduce queues by 70%
+- Enable instant P2P payments
+- Improve transparency
+- Reduce transaction costs
+
+## 4. Target Users
+
+- Students
+- Staff
+- Campus vendors
+- University administration
+
+## 5. Core Features
+
+### Student Features
+- Registration with student ID
+- Secure wallet
+- Token transfer
+- QR payments
+- Transaction history
+
+### Admin Features
+- Token issuance
+- Monitor transactions
+- Freeze accounts
+- Generate reports
