@@ -9,9 +9,9 @@ import { Component } from '@angular/core';
         <h1>Proposal documentation</h1>
         <p>Review the system design, business model, and development plan in the repository docs.</p>
         <ul>
-          <li><a href="/docs/srs.md" target="_blank">System Requirements Specification</a></li>
-          <li><a href="/docs/development_plan.md" target="_blank">Development Plan</a></li>
-          <li><a href="/docs/bizmodel.md" target="_blank">Business Model</a></li>
+          <li><a href="docs/srs.md" target="_blank">System Requirements Specification</a></li>
+          <li><a href="docs/development_plan.md" target="_blank">Development Plan</a></li>
+          <li><a href="docs/bizmodel.md" target="_blank">Business Model</a></li>
         </ul>
         <p class="note">Open these files from the repo or use the local docs folder.</p>
       </div>
