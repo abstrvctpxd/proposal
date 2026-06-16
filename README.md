@@ -24,7 +24,9 @@ UniCryptoPay provides:
 ## 🛠 Tech Stack
 
 Frontend:
-- Flutter / React Native
+- Angular (recommended: v16+)
+  - Project root: `/frontend`
+  - Local setup: `npm install` then `npm start` (or `ng serve` if using Angular CLI)
 
 Backend:
 - Node.js + Express
