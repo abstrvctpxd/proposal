@@ -1,3 +1,5 @@
+Universities increasingly rely on cash payments, mobile money transfers, and manual payment verification processes for student transactions, event ticketing, club subscriptions, and campus vendor payments. These methods often result in transaction delays, long queues, reconciliation errors, and limited financial transparency. Existing mobile money solutions are not tailored to closed university ecosystems and incur transaction costs that can be significant for frequent low-value payments. Therefore, there is a need for a secure, transparent, and efficient campus payment platform that leverages blockchain technology to streamline transactions and improve accountability.
+
 # UniCryptoPay
 
 UniCryptoPay is a university-based cryptocurrency payment application designed to solve common campus financial challenges such as long queues, slow peer-to-peer transfers, and high transaction fees.
