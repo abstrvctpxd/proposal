@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
         <p>A simple Angular shell for the UniCryptoPay campus payment platform.</p>
         <div class="actions">
           <a routerLink="/docs" class="button">View proposal docs</a>
+          <a routerLink="/vendors" class="button" style="margin-left: 0.75rem;">View vendors</a>
         </div>
       </div>
 

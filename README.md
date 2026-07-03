@@ -9,11 +9,45 @@ Campus payments often involve fragmented systems, delayed settlement, and limite
 ## Project Structure
 
 - Frontend: Angular app in [frontend](frontend)
+- Backend: Express API in [backend](backend)
 - Documentation: proposal and planning materials in [frontend/public/docs](frontend/public/docs)
 
 ## Run the App
 
+### Backend
+
 From the repository root:
+
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file in `backend/` with your database settings:
+
+```bash
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_password
+DB_NAME=unicryptopay
+PORT=3000
+```
+
+Initialize the database if you want MySQL powered vendor data:
+
+```bash
+mysql -u root -p < backend/schema.sql
+```
+
+Then start the backend server:
+
+```bash
+npm start
+```
+
+### Frontend
+
+In a separate terminal:
 
 ```bash
 cd frontend
@@ -21,13 +55,20 @@ npm install
 npm start
 ```
 
-Then open http://localhost:4200/ in your browser.
+Open http://localhost:4200/ in your browser.
+
+## API Endpoints
+
+- `GET http://localhost:3000/api/status` — health check
+- `GET http://localhost:3000/api/vendors` — vendor list
 
 ## Test the App
 
-Run the current frontend test suite with:
+Run the frontend test suite with:
 
 ```bash
 cd frontend
 npm test -- --watch=false
 ```
+
+The backend will serve live vendor data if MySQL is configured; otherwise it will return a fallback sample vendor list.
