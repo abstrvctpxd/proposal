@@ -31,5 +31,3 @@ Run the current frontend test suite with:
 cd frontend
 npm test -- --watch=false
 ```
-
-The current test setup is working through the Angular/Vitest runner, but the sample test file may need adjustment if you want all tests to pass cleanly in this environment.
