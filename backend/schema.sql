@@ -1,12 +1,12 @@
-CREATE DATABASE IF NOT EXISTS unicryptopay;
-USE unicryptopay;
+CREATE DATABASE unicryptopay;
+\c unicryptopay
 
 CREATE TABLE IF NOT EXISTS vendors (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  category VARCHAR(100) DEFAULT NULL,
-  location VARCHAR(255) DEFAULT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  category VARCHAR(100),
+  location VARCHAR(255),
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 INSERT INTO vendors (name, category, location)

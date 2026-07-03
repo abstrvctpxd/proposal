@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const mysql = require('mysql2/promise');
+const { Pool } = require('pg');
 const path = require('path');
 
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
@@ -8,14 +8,13 @@ require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const pool = mysql.createPool({
+const pool = new Pool({
   host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
+  user: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'unicryptopay',
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+  port: Number(process.env.DB_PORT || 5432),
+  max: 10
 });
 
 app.use(cors({ origin: 'http://localhost:4200' }));
@@ -29,8 +28,8 @@ const sampleVendors = [
 
 async function tryDb() {
   try {
-    const conn = await pool.getConnection();
-    conn.release();
+    const client = await pool.connect();
+    client.release();
     return true;
   } catch (error) {
     return false;
@@ -42,6 +41,7 @@ app.get('/api/status', async (req, res) => {
   res.json({
     status: 'ok',
     backend: 'express',
+    database: 'postgresql',
     dbConnected,
     timestamp: new Date().toISOString()
   });
@@ -49,14 +49,15 @@ app.get('/api/status', async (req, res) => {
 
 app.get('/api/vendors', async (req, res) => {
   try {
-    const [rows] = await pool.query('SELECT id, name, category, location FROM vendors LIMIT 20');
+    const result = await pool.query('SELECT id, name, category, location FROM vendors ORDER BY id LIMIT 20');
+    const rows = result.rows;
     if (!rows || rows.length === 0) {
       return res.json(sampleVendors);
     }
 
     res.json(rows);
   } catch (error) {
-    console.warn('MySQL vendor fetch failed:', error.message || error);
+    console.warn('PostgreSQL vendor fetch failed:', error.message || error);
     res.json(sampleVendors);
   }
 });

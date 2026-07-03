@@ -27,16 +27,17 @@ Create a `.env` file in `backend/` with your database settings:
 
 ```bash
 DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
+DB_USER=Veyda
+DB_PASSWORD=admin14868
 DB_NAME=unicryptopay
+DB_PORT=5432
 PORT=3000
 ```
 
-Initialize the database if you want MySQL powered vendor data:
+Initialize PostgreSQL using:
 
 ```bash
-mysql -u root -p < backend/schema.sql
+psql -U postgres -f schema.sql
 ```
 
 Then start the backend server:

@@ -1,6 +1,6 @@
 # UniCryptoPay Backend
 
-This backend provides a lightweight Express API for the UniCryptoPay frontend. It is designed to connect to a MySQL database for vendor and transaction data.
+This backend provides a lightweight Express API for the UniCryptoPay frontend. It is designed to connect to a PostgreSQL database for vendor and transaction data.
 
 ## Setup
 
@@ -14,9 +14,10 @@ Create a `.env` file in `backend/` with your database settings:
 
 ```bash
 DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
+DB_USER=Veyda
+DB_PASSWORD=admin14868
 DB_NAME=unicryptopay
+DB_PORT=5432
 PORT=3000
 ```
 
@@ -33,4 +34,10 @@ npm start
 
 ## Database
 
-Execute `schema.sql` to create the sample database and vendor table.
+Use `psql` to initialize PostgreSQL with `schema.sql`:
+
+```bash
+psql -U postgres -f schema.sql
+```
+
+If your PostgreSQL instance uses a different superuser or host, update the command accordingly.
