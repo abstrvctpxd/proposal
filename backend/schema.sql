@@ -1,6 +1,3 @@
-CREATE DATABASE unicryptopay;
-\c unicryptopay
-
 CREATE TABLE IF NOT EXISTS vendors (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,

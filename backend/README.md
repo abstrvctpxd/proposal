@@ -1,6 +1,6 @@
 # UniCryptoPay Backend
 
-This backend provides a lightweight Express API for the UniCryptoPay frontend. It is designed to connect to a PostgreSQL database for vendor and transaction data.
+This backend provides a simple Express API for the UniCryptoPay frontend, backed by PostgreSQL.
 
 ## Setup
 
@@ -14,7 +14,7 @@ Create a `.env` file in `backend/` with your database settings:
 
 ```bash
 DB_HOST=localhost
-DB_USER=Veyda
+DB_USER=veyda
 DB_PASSWORD=admin14868
 DB_NAME=unicryptopay
 DB_PORT=5432
@@ -34,10 +34,15 @@ npm start
 
 ## Database
 
-Use `psql` to initialize PostgreSQL with `schema.sql`:
+Initialize PostgreSQL with the schema:
 
 ```bash
-psql -U postgres -f schema.sql
+psql -U postgres -d unicryptopay -f schema.sql
 ```
 
-If your PostgreSQL instance uses a different superuser or host, update the command accordingly.
+If needed, create the database and superuser first:
+
+```bash
+sudo -u postgres psql -c "CREATE ROLE veyda WITH LOGIN SUPERUSER PASSWORD 'admin14868';"
+sudo -u postgres psql -c "CREATE DATABASE unicryptopay OWNER veyda;"
+```

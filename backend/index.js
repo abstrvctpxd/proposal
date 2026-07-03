@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 const pool = new Pool({
   host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'postgres',
+  user: process.env.DB_USER || 'veyda',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'unicryptopay',
   port: Number(process.env.DB_PORT || 5432),
@@ -54,10 +54,9 @@ app.get('/api/vendors', async (req, res) => {
     if (!rows || rows.length === 0) {
       return res.json(sampleVendors);
     }
-
     res.json(rows);
   } catch (error) {
-    console.warn('PostgreSQL vendor fetch failed:', error.message || error);
+    console.error('PostgreSQL vendor fetch failed:', error.message || error);
     res.json(sampleVendors);
   }
 });
